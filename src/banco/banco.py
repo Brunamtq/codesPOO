@@ -1,9 +1,12 @@
+from src.conta import conta
+
+
 class Banco:
     def __init__(self):
         self.contas = [None] * 100
         self.indice = 0
 
-    def cadastrar(self, conta):
+    def cadastrar(self, conta: Conta):
         self.contas[self.indice] = conta
         self.indice += 1
 
@@ -15,10 +18,10 @@ class Banco:
                 achou = True
             else:
                 i += 1
-            if achou is True:
-                return self.contas[i]
-            else:
-                return None
+        if achou is True:
+            return self.contas[i]
+        else:
+            return None
 
     def creditar(self, numero, valor):
         conta = self.procurar_conta(numero)
